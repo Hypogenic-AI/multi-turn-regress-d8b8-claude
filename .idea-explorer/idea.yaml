@@ -1,0 +1,23 @@
+idea:
+  title: Do Multi-Turn Conversations Regress to the Prior?
+  domain: nlp
+  hypothesis: 'In long multi-turn conversations, large language models regress to
+    their base level prior more than anything else, as alignment training is most
+    effective only for the initial turns.
+
+    '
+  background:
+    description: 'I have a theory: I hypothesize that in long multi-turn conversations,
+      LLMs regress to their base level prior more than anything else. Of course, there''s
+      a significant amount of noise explaining the total degeneration after long multi-turn
+      conversations, but I think a significant amount of what''s happening is that
+      the alignment training only works for the first few terms, which are the Space
+      the model has most well-tread when undergoing alignment.'
+  metadata:
+    source: IdeaHub
+    source_url: https://hypogenic.ai/ideahub/idea/WHbvDdMiYyDhTZxbMjhO
+    idea_id: do_multi_turn_conversations_re_20260215_161110_b35a572b
+    created_at: '2026-02-15T16:11:10.014866'
+    status: submitted
+    github_repo_name: multi-turn-regress-d8b8-claude
+    github_repo_url: https://github.com/Hypogenic-AI/multi-turn-regress-d8b8-claude
