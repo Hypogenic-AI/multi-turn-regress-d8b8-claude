@@ -1,0 +1,30 @@
+# Ignore all data files (Arrow, Parquet, etc.)
+*.arrow
+*.parquet
+*.bin
+*.safetensors
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.pt
+*.pth
+
+# Ignore HuggingFace datasets cache and state files
+**/dataset_info.json
+**/state.json
+**/data-*
+
+# Ignore large dataset directories contents but keep structure
+multi_if/train/
+mt_bench/train/
+boolq/train/
+boolq/validation/
+lmsys_chat_1m/
+wildchat/
+
+# Keep README, sample files, and download instructions
+!README.md
+!*/sample_*.json
+!*/DOWNLOAD_INSTRUCTIONS.json
+!.gitignore

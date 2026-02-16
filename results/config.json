@@ -1,0 +1,29 @@
+{
+  "seed": 42,
+  "models": [
+    "gpt-4.1",
+    "gpt-4o",
+    "gpt-4o-mini"
+  ],
+  "turn_depths": [
+    1,
+    3,
+    5,
+    10,
+    15,
+    20
+  ],
+  "temperature": 0.0,
+  "n_probes_per_type": 10,
+  "experiments": [
+    "basic_alignment_probes (450 runs)",
+    "hard_probes: instruction_persistence (90 runs)",
+    "hard_probes: progressive_persuasion (45 runs)",
+    "hard_probes: boundary_push (6 runs)",
+    "intervention_experiment (96 runs)"
+  ],
+  "total_api_calls": "~3000+",
+  "timestamp": "2026-02-15T18:10:00.846671",
+  "gpu": "2x NVIDIA RTX 3090 24GB (not used for this API-based experiment)",
+  "python_version": "3.12.2"
+}

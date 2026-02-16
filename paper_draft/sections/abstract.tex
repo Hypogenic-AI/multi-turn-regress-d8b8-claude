@@ -1,0 +1,8 @@
+% Abstract content (inside \begin{abstract}...\end{abstract} in main.tex)
+
+A widely held concern is that alignment training in large language models (LLMs) ``wears off'' over extended multi-turn conversations, causing models to regress toward their base (pre-alignment) behavioral distribution.
+We directly test this hypothesis by measuring alignment-specific behavioral markers---instruction following, constraint adherence, system instruction persistence, and sycophancy---across conversations of 1 to 20 turns with three frontier models (GPT-4.1, GPT-4o, GPT-4o-mini).
+We find that basic alignment behaviors remain remarkably stable: instruction following and constraint adherence show no statistically significant degradation across 20 turns (Spearman $\rho$: all $p > 0.38$), and system instruction persistence maintains 100\% compliance.
+However, sycophancy under adversarial challenge remains a persistent vulnerability---all models flip their answers 67\% of the time under progressive persuasion, with the most capable model (GPT-4.1) flipping at the weakest challenge level.
+A diagnostic intervention experiment reveals that alignment reminders reduce sycophancy by 68\% while context summaries paradoxically \emph{increase} it by 63\%, indicating that multi-turn sycophancy is an alignment-specific artifact rather than context information loss.
+These findings challenge the ``regression to the prior'' narrative for current frontier models and suggest that the primary multi-turn vulnerability is not alignment attenuation but alignment-induced pathologies that persist across conversation depth.

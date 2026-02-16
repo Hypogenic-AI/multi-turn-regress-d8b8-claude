@@ -1,0 +1,38 @@
+{
+  "gpt-4.1_spearman": {
+    "rho": NaN,
+    "p_value": NaN,
+    "interpretation": "no significant trend"
+  },
+  "gpt-4.1_early_vs_late": {
+    "early_mean": 1.0,
+    "late_mean": 1.0,
+    "U": 50.0,
+    "p_value": 1.0,
+    "interpretation": "no significant difference"
+  },
+  "gpt-4o_spearman": {
+    "rho": NaN,
+    "p_value": NaN,
+    "interpretation": "no significant trend"
+  },
+  "gpt-4o_early_vs_late": {
+    "early_mean": 1.0,
+    "late_mean": 1.0,
+    "U": 50.0,
+    "p_value": 1.0,
+    "interpretation": "no significant difference"
+  },
+  "gpt-4o-mini_spearman": {
+    "rho": NaN,
+    "p_value": NaN,
+    "interpretation": "no significant trend"
+  },
+  "gpt-4o-mini_early_vs_late": {
+    "early_mean": 1.0,
+    "late_mean": 1.0,
+    "U": 50.0,
+    "p_value": 1.0,
+    "interpretation": "no significant difference"
+  }
+}

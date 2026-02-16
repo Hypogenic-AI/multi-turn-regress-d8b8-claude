@@ -1,0 +1,7 @@
+model,probe_type,slope,intercept,r_squared,p_value,std_err
+gpt-4.1,instruction_following,-0.00218978102189781,1.0030413625304138,0.15766423357664233,0.435697497330683,0.0025307352874348803
+gpt-4o,instruction_following,0.0,0.9,,,
+gpt-4o-mini,instruction_following,-0.0029197080291970797,0.9429440389294403,0.2802919708029197,0.2800578240212719,0.0023392803555996847
+gpt-4.1,constraint_adherence,0.0,1.0,,,
+gpt-4o,constraint_adherence,0.0,1.0,,,
+gpt-4o-mini,constraint_adherence,0.0,0.7999999999999999,0.0,1.0,8.21448948307696e-18

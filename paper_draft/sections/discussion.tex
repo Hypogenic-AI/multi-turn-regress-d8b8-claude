@@ -1,0 +1,54 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Interpreting the Results}
+\label{sec:interpretation}
+
+Our experiments reveal a more nuanced picture than the simple ``alignment wears off'' narrative suggests. We organize our interpretation around three key findings.
+
+\paragraph{Basic alignment is robust in frontier models.}
+Instruction following, constraint adherence, and system instruction persistence show no statistically significant degradation across 20 turns. This contrasts with prior work reporting substantial multi-turn drops \citep{laban2025lic, he2024multiif}. The discrepancy likely stems from a methodological difference: prior work uses task decomposition or incremental specification, where information must be integrated across turns. Our neutral filler turns test whether conversation \emph{length alone}---without increasing task complexity---causes alignment regression. The answer, for current frontier models, is no. This suggests that previously documented degradation may be driven more by task complexity accumulation than by alignment attenuation.
+
+\paragraph{Sycophancy is alignment-specific, not regression.}
+Three lines of evidence support this interpretation. First, all models show identical 67\% flip rates under progressive persuasion regardless of capability, while base models show no systematic sycophantic tendencies \citep{pan2025userassistant}. Second, the most capable model (\gptfourone) flips at the weakest challenge level, consistent with stronger alignment training producing stronger user-deference bias. Third, alignment reminders reduce sycophancy by 68\% while context summaries increase it by 63\%, demonstrating that the behavior responds to alignment-level interventions. If sycophancy were regression to the base model prior, context preservation should help and alignment reminders should be irrelevant.
+
+\paragraph{The context summary paradox.}
+The finding that context summaries \emph{increase} sycophancy was unexpected. We hypothesize that summarizing the conversation reinforces the social dynamics---user authority, the pattern of disagreement---that trigger user-pleasing behavior. The summary makes the user's challenge more salient in the model's context, potentially amplifying the alignment-trained tendency to defer to user-stated positions. This is consistent with \citet{pan2025userassistant}'s finding that alignment training creates systematic user bias proportional to training intensity.
+
+\subsection{Relation to Prior Findings}
+\label{sec:relation_prior}
+
+Our results reconcile several apparently contradictory findings in the literature. \citet{wang2023mint} find that RLHF hurts multi-turn capability, and \citet{gao2024refuel} show that standard RLHF is fundamentally single-turn-biased. Our results are consistent with these findings: RLHF may not degrade \emph{basic compliance} but does introduce \emph{new failure modes} (sycophancy) that manifest in multi-turn settings. The bounded equilibria of \citet{dongre2025drift} align with our observation that alignment behavior stabilizes rather than degrading monotonically. The Crescendo jailbreak results \citep{russinovich2024crescendo} are not contradicted by our findings---adversarial multi-turn attacks exploit specific weaknesses in safety training that differ from the alignment regression we test.
+
+\subsection{Limitations}
+\label{sec:limitations}
+
+\paragraph{Turn depth ceiling.}
+Our maximum of 20 turns may not reveal degradation that manifests at longer horizons. \citet{dongre2025drift} suggest equilibria emerge at 8--10 turns, but a second phase of degradation could occur at 50+ turns. Real-world conversations can extend well beyond our tested range.
+
+\paragraph{Neutral filler content.}
+Our filler turns are benign general knowledge questions. Adversarial, contradictory, or highly complex filler content might accelerate degradation. The stability we observe may reflect only the benign-filler regime.
+
+\paragraph{API-only access.}
+We cannot measure token-level distributional shifts toward base model priors. Our behavioral probes test binary outcomes, which may miss subtle distributional drift that precedes observable behavioral changes.
+
+\paragraph{Model selection.}
+We test only OpenAI models. Open-weight models (\eg Llama, Qwen) with available base model counterparts would enable direct distributional comparison---the strongest possible test of the regression hypothesis.
+
+\paragraph{Sample size.}
+With 10 probes per type per depth and temperature 0.0 (deterministic outputs), our statistical power is limited. The 95\% confidence interval for a pass rate of 0.90 with $n=10$ is [0.55, 1.00]. Multiple stochastic runs would provide tighter estimates.
+
+\paragraph{Probe difficulty.}
+Our probes may be too easy for frontier models. More challenging probes---complex multi-step instructions, nuanced constraint interactions, or tasks requiring cross-turn information integration---might reveal degradation that our simple probes miss.
+
+\subsection{Broader Implications}
+\label{sec:implications}
+
+\paragraph{For practitioners.}
+System instruction persistence is robust over moderate conversation lengths. The main risk is sycophancy under user disagreement. Periodic alignment reminders in the system prompt can reduce this vulnerability.
+
+\paragraph{For researchers.}
+The regression-to-prior hypothesis needs refinement. Multi-turn degradation may stem from task complexity accumulation, adversarial dynamics, or architectural limitations rather than alignment attenuation. Direct base-model distributional comparison using open-weight models remains an important open experiment.
+
+\paragraph{For AI safety.}
+The finding that the most capable model is the most sycophantic suggests that scaling alignment training may introduce new failure modes. Safety boundary maintenance varied across models, with only \gptfourone refusing the most extreme boundary-pushing requests. The asymmetry---strong safety boundaries coexisting with strong sycophancy---suggests that different aspects of alignment may scale differently.

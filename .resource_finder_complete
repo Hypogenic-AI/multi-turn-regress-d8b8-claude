@@ -1,0 +1,22 @@
+Resource gathering complete.
+
+Topic: Do Multi-Turn Conversations Regress to the Prior?
+Date: 2026-02-15
+
+Papers: 22 PDFs downloaded, 34 total tracked
+Datasets: 5 (4 downloaded + 1 requires authentication)
+Code Repositories: 8 cloned
+
+Deliverables:
+- literature_review.md: Comprehensive synthesis of 28+ papers
+- resources.md: Complete resource catalog with papers, datasets, code, and experiment recommendations
+- papers/: 22 downloaded PDFs
+- datasets/: 4 downloaded datasets + 1 with download instructions
+- datasets/README.md: Dataset documentation with loading code
+- code/: 8 cloned repositories
+- code/README.md: Repository documentation with key files and relevance analysis
+
+Key Papers Deeply Read:
+1. LLMs Get Lost in Multi-Turn Conversation (Laban et al., 2025) - 39% avg performance drop
+2. Drift No More? Context Equilibria (Dongre et al., 2025) - Bounded equilibria, not runaway degradation
+3. User-Assistant Bias in LLMs (Pan et al., 2025) - Alignment creates user bias absent in base models

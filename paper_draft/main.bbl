@@ -1,0 +1,117 @@
+\begin{thebibliography}{18}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Anonymous(2023)]{flipflop2023}
+Anonymous.
+\newblock {FlipFlop}: Are you sure? challenging {LLMs}.
+\newblock \emph{arXiv preprint arXiv:2311.08596}, 2023.
+
+\bibitem[Clark et~al.(2019)Clark, Lee, Chang, Kwiatkowski, Collins, and
+  Toutanova]{clark2019boolq}
+Christopher Clark, Kenton Lee, Ming-Wei Chang, Tom Kwiatkowski, Michael
+  Collins, and Kristina Toutanova.
+\newblock {BoolQ}: Exploring the surprising difficulty of natural yes/no
+  questions.
+\newblock \emph{arXiv preprint arXiv:1905.10044}, 2019.
+
+\bibitem[Dongre et~al.(2025)Dongre, Rossi, Lai, Yoon, Hakkani-Tur, and
+  Bui]{dongre2025drift}
+Adarsh Dongre, Ryan~A Rossi, Tung Lai, Sungchul Yoon, Dilek Hakkani-Tur, and
+  Trung Bui.
+\newblock Drift no more? context equilibria in multi-turn {LLM} interactions.
+\newblock \emph{arXiv preprint arXiv:2510.07777}, 2025.
+
+\bibitem[Gao et~al.(2024)]{gao2024refuel}
+Zixuan Gao et~al.
+\newblock {REFUEL}: Regressing the relative future for multi-turn {RLHF} policy
+  optimization.
+\newblock \emph{arXiv preprint arXiv:2410.01088}, 2024.
+
+\bibitem[He et~al.(2024)]{he2024multiif}
+Yun He et~al.
+\newblock Multi-{IF}: Benchmarking {LLMs} on multi-turn and multilingual
+  instructions following.
+\newblock \emph{arXiv preprint arXiv:2410.15553}, 2024.
+
+\bibitem[Hong et~al.(2025)]{hong2025syconbench}
+Giwon Hong et~al.
+\newblock {SYCON-Bench}: Measuring sycophancy in multi-turn dialogues.
+\newblock \emph{arXiv preprint arXiv:2505.23840}, 2025.
+
+\bibitem[Khalid et~al.(2025)]{khalid2025ergo}
+Muhammad Khalid et~al.
+\newblock {ERGO}: Entropy-guided resetting for generation optimization.
+\newblock \emph{arXiv preprint arXiv:2505.17863}, 2025.
+
+\bibitem[Kwan et~al.(2024)]{kwan2024mteval}
+Wai-Chung Kwan et~al.
+\newblock {MT-Eval}: A multi-turn capabilities evaluation benchmark.
+\newblock In \emph{Proceedings of EMNLP}, 2024.
+
+\bibitem[Laban et~al.(2025)Laban, Hayashi, Zhou, and Neville]{laban2025lic}
+Philippe Laban, Hiroaki Hayashi, Yichen Zhou, and Jennifer Neville.
+\newblock Llms get lost in multi-turn conversation.
+\newblock \emph{arXiv preprint arXiv:2505.06120}, 2025.
+
+\bibitem[Liu et~al.(2025)Liu, Jain, Takuri, Vege, Akalin, Zhu, O'Brien, and
+  Sharma]{liu2025truthdecay}
+Soham Liu, Rhythm Jain, Sreekar Takuri, Anirudh Vege, Selen Akalin, William
+  Zhu, Nicholas O'Brien, and Arnav Sharma.
+\newblock {TRUTH DECAY}: Quantifying multi-turn sycophancy in language models.
+\newblock \emph{arXiv preprint arXiv:2503.11656}, 2025.
+
+\bibitem[Ouyang et~al.(2022)Ouyang, Wu, Jiang, Almeida, Wainwright, Mishkin,
+  Zhang, Agarwal, Slama, Ray, et~al.]{ouyang2022training}
+Long Ouyang, Jeffrey Wu, Xu~Jiang, Diogo Almeida, Carroll Wainwright, Pamela
+  Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, et~al.
+\newblock Training language models to follow instructions with human feedback.
+\newblock \emph{Advances in Neural Information Processing Systems},
+  35:\penalty0 27730--27744, 2022.
+
+\bibitem[Pan et~al.(2025)Pan, Fan, Xiong, Hahami, Overwiening, and
+  Xie]{pan2025userassistant}
+Tianhao Pan, Yihang Fan, Chenwei Xiong, Ofir Hahami, Alexander Overwiening, and
+  Yuxin Xie.
+\newblock User-assistant bias in {LLMs}.
+\newblock \emph{arXiv preprint arXiv:2508.15815}, 2025.
+
+\bibitem[Rafailov et~al.(2023)Rafailov, Sharma, Mitchell, Ermon, Manning, and
+  Finn]{rafailov2023direct}
+Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher~D
+  Manning, and Chelsea Finn.
+\newblock Direct preference optimization: Your language model is secretly a
+  reward model.
+\newblock \emph{Advances in Neural Information Processing Systems}, 36, 2023.
+
+\bibitem[Russinovich et~al.(2024)Russinovich, Salem, and
+  Eldan]{russinovich2024crescendo}
+Mark Russinovich, Ahmed Salem, and Ronen Eldan.
+\newblock Crescendo: Multi-turn {LLM} jailbreak attack.
+\newblock \emph{arXiv preprint arXiv:2404.00657}, 2024.
+
+\bibitem[Singhania et~al.(2025)]{singhania2025mmart}
+Anshuman Singhania et~al.
+\newblock {MM-ART}: Multi-lingual multi-turn automated red teaming for {LLMs}.
+\newblock 2025.
+
+\bibitem[Wang et~al.(2023)]{wang2023mint}
+Xingyao Wang et~al.
+\newblock {MINT}: Evaluating {LLMs} in multi-turn interaction with tools and
+  language feedback.
+\newblock \emph{arXiv preprint arXiv:2309.10691}, 2023.
+
+\bibitem[Weng et~al.(2025)]{weng2025fitd}
+Zihao Weng et~al.
+\newblock Foot-in-the-door: A multi-turn jailbreak for {LLMs}.
+\newblock 2025.
+
+\bibitem[Zhou and Arel(2025)]{zhou2025tempest}
+Yu~Zhou and Itamar Arel.
+\newblock Tempest: Autonomous multi-turn jailbreaking with tree search.
+\newblock 2025.
+
+\end{thebibliography}

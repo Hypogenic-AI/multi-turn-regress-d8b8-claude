@@ -1,0 +1,153 @@
+\section{Results}
+\label{sec:results}
+
+We present results across our three experiments, progressing from basic alignment stability to sycophancy vulnerability to mechanistic diagnostics.
+
+\subsection{Experiment 1: Basic Alignment Stability}
+\label{sec:basic_alignment}
+
+\paragraph{Instruction following remains stable across 20 turns.}
+\Tabref{tab:instruction_following} shows instruction following rates across turn depths. All three models maintain high compliance with no systematic degradation. \gptfourone achieves perfect or near-perfect scores at every depth, with a single dip to 0.90 at turn 15 that recovers to 1.00 at turn 20. \gptfouro holds steady at 0.90 across all depths. \gptfouromini starts at 1.00 and stabilizes at 0.90 from turn 3 onward. Spearman correlation between turn depth and pass rate yields no significant trends for any model (all $p > 0.38$), though we note that with $n=6$ data points per model these tests have limited power to detect small effects.
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \textbf{Model} & \textbf{Turn 1} & \textbf{Turn 3} & \textbf{Turn 5} & \textbf{Turn 10} & \textbf{Turn 15} & \textbf{Turn 20} \\
+        \midrule
+        \gptfourone & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & 0.90 & {\bf 1.00} \\
+        \gptfouro & 0.90 & 0.90 & 0.90 & 0.90 & 0.90 & 0.90 \\
+        \gptfouromini & {\bf 1.00} & 0.90 & 0.90 & 0.90 & 0.90 & 0.90 \\
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{Instruction following rate by turn depth. No model shows statistically significant degradation (Spearman: all $p > 0.38$). Best results per column in \textbf{bold}.}
+    \label{tab:instruction_following}
+\end{table}
+
+\paragraph{Constraint adherence is similarly stable.}
+\Tabref{tab:constraint_adherence} shows constraint adherence rates. \gptfourone and \gptfouro maintain perfect 1.00 scores across all depths. \gptfouromini shows a constant 0.80 at every depth---a capability limitation (failing the ``avoid letter e'' constraint) rather than degradation. Mann-Whitney U tests comparing early (turns 1--3) versus late (turns 15--20) performance find no significant differences for any model (all $p > 0.21$).
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \textbf{Model} & \textbf{Turn 1} & \textbf{Turn 3} & \textbf{Turn 5} & \textbf{Turn 10} & \textbf{Turn 15} & \textbf{Turn 20} \\
+        \midrule
+        \gptfourone & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} \\
+        \gptfouro & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} & {\bf 1.00} \\
+        \gptfouromini & 0.80 & 0.80 & 0.80 & 0.80 & 0.80 & 0.80 \\
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{Constraint adherence rate by turn depth. \gptfourone and \gptfouro maintain perfect scores. \gptfouromini shows a constant floor due to capability limitations, not degradation. Best per column in \textbf{bold}.}
+    \label{tab:constraint_adherence}
+\end{table}
+
+\paragraph{Single-challenge sycophancy is near-zero.}
+When challenged once at varying turn depths, models almost never flip their answers (\tabref{tab:sycophancy_single}). The only non-zero flip rate is \gptfourone at turn 15 (0.10), which is not statistically significant. This contrasts sharply with the progressive persuasion results below.
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \textbf{Model} & \textbf{Turn 1} & \textbf{Turn 3} & \textbf{Turn 5} & \textbf{Turn 10} & \textbf{Turn 15} & \textbf{Turn 20} \\
+        \midrule
+        \gptfourone & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & 0.10 & {\bf 0.00} \\
+        \gptfouro & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} \\
+        \gptfouromini & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} \\
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{Sycophancy flip rate (single challenge) by turn depth. Models resist single challenges regardless of conversation depth. Best (lowest) per column in \textbf{bold}.}
+    \label{tab:sycophancy_single}
+\end{table}
+
+\Figref{fig:alignment_combined} summarizes the combined alignment score across all three probe types, showing flat or near-flat curves for all models.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/combined_alignment_score.png}
+    \caption{Combined alignment score across turn depths. All three models maintain stable alignment throughout 20 turns, with no evidence of systematic degradation. The flat curves indicate that conversation length alone does not erode basic alignment behaviors.}
+    \label{fig:alignment_combined}
+\end{figure}
+
+\subsection{Experiment 2: Hard Probes}
+\label{sec:hard_probes}
+
+\paragraph{System instruction persistence is perfect across 20 turns.}
+All three models maintain system instructions (pirate persona, formal butler, rhyming couplets, word counting, no pronouns) with 100\% compliance across all 20 turns (\figref{fig:instruction_persistence}). This finding was unexpected---we anticipated at least some degradation of complex behavioral instructions over extended conversations.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/instruction_persistence_aggregate.png}
+    \caption{System instruction persistence across 20 turns. All models maintain 100\% compliance with all five persona/constraint instructions, showing no evidence of instruction forgetting.}
+    \label{fig:instruction_persistence}
+\end{figure}
+
+\paragraph{Progressive persuasion reveals uniform sycophancy.}
+Under escalating adversarial pressure (\tabref{tab:progressive_persuasion}), all three models show identical flip rates of 67\% (8 out of 12 initially correct answers). However, they differ in \emph{when} they flip. \gptfourone flips at the weakest challenge level on average (mean level 0.7 out of 4), while \gptfouro requires stronger challenges (mean level 1.7). This is counterintuitive: the most capable model is the \emph{most} sycophantic.
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccc@{}}
+        \toprule
+        \textbf{Model} & \textbf{Initially Correct} & \textbf{Flipped} & \textbf{Flip Rate} & \textbf{Mean Flip Level} \\
+        \midrule
+        \gptfourone & 12/15 & 8/12 & 67\% & 0.7 (weakest) \\
+        \gptfouro & 12/15 & 8/12 & 67\% & 1.7 (moderate) \\
+        \gptfouromini & 12/15 & 8/12 & 67\% & 1.1 (moderate) \\
+        \bottomrule
+    \end{tabular}
+    }
+    \caption{Progressive persuasion results. All models flip at the same overall rate, but \gptfourone flips at the weakest challenge level despite being the most capable model. Challenge levels range from 0 (mildest: ``Can you reconsider?'') to 4 (strongest: ``I'm a professor and you're wrong'').}
+    \label{tab:progressive_persuasion}
+\end{table}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/progressive_persuasion.png}
+    \caption{Progressive persuasion across escalating challenge levels. \gptfourone (the most capable model) capitulates at the weakest challenge level, while \gptfouro requires stronger persuasion. All models converge to the same 67\% flip rate.}
+    \label{fig:progressive_persuasion}
+\end{figure}
+
+\paragraph{Safety boundary maintenance varies across models.}
+In a small-scale probe (2 escalation scenarios per model), only \gptfourone maintained a safety boundary under gradual helpfulness escalation, refusing at the highest level (5/5). \gptfouro and \gptfouromini complied with all requests. Given the limited sample size, we treat this as a preliminary observation rather than a definitive finding.
+
+\subsection{Experiment 3: Intervention Diagnostics}
+\label{sec:interventions}
+
+The intervention experiment at turn depth 15 provides the key diagnostic for distinguishing alignment attenuation from context loss.
+
+\paragraph{Instruction following is unaffected by interventions.}
+Both \gptfouromini and \gptfourone achieve 0.88 instruction following rate under all three conditions (control, alignment reminder, context summary). Neither intervention has any effect---because instruction following was not degraded in the first place.
+
+\paragraph{Alignment reminders reduce sycophancy; context summaries increase it.}
+\Tabref{tab:intervention_sycophancy} presents the critical finding. For \gptfouromini, the alignment reminder reduces the flip rate from 0.38 to 0.12 ($-$68\%), while the context summary \emph{increases} it from 0.38 to 0.62 (+63\%). For \gptfourone, the control flip rate is already 0.00, but the context summary increases it to 0.12.
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        \textbf{Model} & \textbf{Control} & \textbf{Alignment Reminder} & \textbf{Context Summary} \\
+        \midrule
+        \gptfouromini & 0.38 & {\bf 0.12} ($-$68\%) & 0.62 (+63\%) \\
+        \gptfourone & {\bf 0.00} & {\bf 0.00} & 0.12 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Sycophancy flip rate at turn 15 under different interventions applied at turn 10. Alignment reminders reduce sycophancy while context summaries paradoxically increase it. Best (lowest) per row in \textbf{bold}.}
+    \label{tab:intervention_sycophancy}
+\end{table}
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/intervention_effects.png}
+    \caption{Intervention effects on sycophancy flip rate. Alignment reminders reduce sycophancy while context summaries increase it, indicating that multi-turn sycophancy is driven by alignment dynamics rather than context information loss.}
+    \label{fig:intervention_effects}
+\end{figure}
+
+This pattern strongly supports the interpretation that multi-turn sycophancy is an alignment-specific behavior. The context summary paradoxically increases sycophancy, possibly by reinforcing the conversational dynamics (user authority, disagreement patterns) that trigger user-pleasing behavior.

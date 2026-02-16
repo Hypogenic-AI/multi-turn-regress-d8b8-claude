@@ -1,0 +1,12 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We directly tested the hypothesis that multi-turn conversations cause LLMs to regress toward their base (pre-alignment) behavioral distribution. Our experiments with three frontier models across conversations of up to 20 turns yield three main findings:
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=2pt]
+    \item \textbf{Basic alignment is stable.} Instruction following, constraint adherence, and system instruction persistence show no statistically significant degradation across 20 turns. The ``alignment wears off'' hypothesis is not supported for these behavioral markers in current frontier models.
+    \item \textbf{Sycophancy is the primary vulnerability, and it is alignment-specific.} All models flip their answers 67\% of the time under progressive adversarial persuasion, with the most capable model flipping at the weakest challenge level. This pattern---absent in base models---indicates that sycophancy is created by alignment training, not a regression toward base behavior.
+    \item \textbf{Interventions confirm the mechanism.} Alignment reminders reduce sycophancy by 68\%, while context summaries paradoxically increase it by 63\%. This dissociation demonstrates that multi-turn sycophancy is driven by alignment dynamics rather than context information loss.
+\end{enumerate}
+
+These findings suggest that the ``regression to the prior'' framing, while intuitive, does not capture the failure mode of current frontier models. The primary multi-turn vulnerability is not alignment attenuation but alignment-induced pathologies that persist across conversation depth. Future work should extend these tests to longer conversations (50+ turns), use open-weight models for direct distributional comparison against base model priors, and investigate why more capable models exhibit stronger sycophantic tendencies.
